@@ -1,0 +1,67 @@
+<template>
+	<div class="app-main">
+		<header>
+			<a v-for="item of menu" :href="item.path">{{ item.title }}</a>
+		</header>
+		<div class="app-body">
+			<sf-route />
+		</div>
+		<footer>
+			<p>{{ version }} build at {{ buildAt }}</p>
+			<p>
+				星星站点博客&copy;2013-{{ new Date().getFullYear() }} 星星站点
+				保留所有权利
+			</p>
+		</footer>
+	</div>
+</template>
+<script lang="ts" setup>
+const menu = [
+	{
+		path: "/",
+		title: "首页",
+	},
+	{ path: "https://www.thestarweb.cn", title: "主站" },
+	{ path: "/list/1", title: "文章列表" },
+	{ path: "/type/list/1", title: "分类列表" },
+];
+const version = process.env.VERSION;
+const buildAt = process.env.BUILD_AT;
+</script>
+<style scoped>
+.app-main {
+	height: 100%;
+	background: linear-gradient(
+			180deg,
+			#030718 0%,
+			#0a1b45 35%,
+			#2a1f5c 70%,
+			#5e2f71 100%
+		)
+		no-repeat;
+	overflow: auto;
+}
+header {
+	position: sticky;
+	top: 0;
+	background: #000;
+	color: #fff;
+	height: 40px;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	padding: 0 10px;
+}
+header a {
+	color: white;
+}
+footer {
+	text-align: center;
+	color: #fff;
+	margin-bottom: 50px;
+}
+.app-body {
+	margin: 50px auto;
+	width: var(--g-width);
+}
+</style>
