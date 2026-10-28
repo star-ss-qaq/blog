@@ -1,15 +1,10 @@
 <template>
-	<component
-		v-for="block in blocks.children"
-		:is="block.type in compMap ? compMap[block.type] : UnknownItem"
-		:item="block"
-	/>
+	<RenderList :items="blocks.children" />
 </template>
 <script setup lang="ts">
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { computed } from "vue";
-import { compMap } from "./comp-map";
-import UnknownItem from "./unknown-item.vue";
+import RenderList from "./render-list.vue";
 
 const { markdown } = defineProps<{ markdown: string }>();
 const blocks = computed(() =>
