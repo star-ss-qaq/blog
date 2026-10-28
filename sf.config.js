@@ -10,20 +10,13 @@ const packageInfo = JSON.parse(readFileSync("./package.json", "utf8"));
 const version = packageInfo.version;
 
 export default defineConfig({
-	plugin: [SFWebPlugin(), SFWebVuePlugin()],
-	vitePlugin: [
-		{
-			name: "a",
-			resolveId(id) {
-				if (id.startsWith("@/")) {
-					return join(process.cwd(), "src", id.substring(2));
-				}
-			},
-		},
+	plugin: [
+		SFWebPlugin({ htmlPath: join(process.cwd(), "index.html") }),
+		SFWebVuePlugin(),
 	],
-	// resolve: {
-	// 	tsconfigPaths: true,
-	// },
+	resolve: {
+		tsconfigPaths: true,
+	},
 	define: {
 		"process.env.VERSION": JSON.stringify(version),
 		"process.env.BUILD_AT": JSON.stringify(

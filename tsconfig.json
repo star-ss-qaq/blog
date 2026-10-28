@@ -3,7 +3,7 @@
 		"target": "ESNext",
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
-		"allowImportingTsExtensions":true,
+		"allowImportingTsExtensions": true,
 		"noEmit": true,
 		"declaration": false,
 		"sourceMap": true,
@@ -14,10 +14,11 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
-		"types": ["node","vite/client"],
-		"paths":{
-			"@/*":["./src/*"],
+		"types": ["node", "vite/client"],
+		"paths": {
+			"@/*": ["./src/*"]
 		}
 	},
-	"reflection": true
+	"reflection": true,
+	"include": ["./src/**/*.ts", "./src/**/*.vue"]
 }
