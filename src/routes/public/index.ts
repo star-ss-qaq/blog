@@ -8,6 +8,7 @@ import {
 import { Inject } from "@thestarweb/star-framework-di";
 import { VueRender } from "@thestarweb/star-framework-app-web-vue";
 import { db } from "@/database/index.ts";
+import { Or } from "@thestarweb/star-framework-db";
 
 @Layout(new VueRender(() => import("@/view/layout.vue")), (o) => ({
 	...o,
@@ -20,12 +21,24 @@ import { db } from "@/database/index.ts";
 export class PublicRoute {
 	@View("", new VueRender(() => import("@/view/index.vue")))
 	async index() {
+		const data = await db
+			.select("article")
+			.addSelect("*")
+			.where("display", 1)
+			.orderBy("id", "DESC")
+			.limit(5);
+		const tags = await db
+			.select("tag")
+			.addSelect("*")
+			.join("articleToTag")
+			.addSelect("articleToTag.articleId")
+			.on("tag.id", "articleToTag.tagId")
+			.where("articleToTag.articleId", Or(...data.map((i) => i.id)));
 		return {
-			list: await db
-				.select("article")
-				.addSelect("*")
-				.orderBy("id", "DESC")
-				.limit(5),
+			list: data.map((i) => ({
+				...i,
+				tags: tags.filter((tag) => tag.articleId === i.id),
+			})),
 		};
 	}
 
@@ -59,8 +72,7 @@ export class PublicRoute {
 			.join("articleToTag")
 			.on("tag.id", "articleToTag.tagId")
 			.where("articleToTag.articleId", id);
-		console.log(tags);
-		return { data, tags };
+		return { data: { ...data, tags } };
 	}
 
 	@View("*", new VueRender(() => import("@/view/404.vue")))
