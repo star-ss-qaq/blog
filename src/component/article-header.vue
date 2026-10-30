@@ -1,0 +1,46 @@
+<template>
+	<h2>{{ article.title }}</h2>
+	<div class="author">
+		<img class="picture" />{{
+			dayjs(article.time).format("YYYY-MM-DD HH:mm:ss")
+		}}
+		<template v-if="article.updateTime">
+			(<img class="picture" />{{
+				dayjs(article.updateTime).format("YYYY-MM-DD HH:mm:ss")
+			}}已更新)
+		</template>
+	</div>
+	<div>
+		<component
+			:is="isIndex ? 'span' : 'a'"
+			class="tag"
+			v-for="item in article.tags"
+			:href="`/tag/id/${item.id}`"
+		>
+			{{ item.name }}
+		</component>
+	</div>
+</template>
+<script setup lang="ts">
+import { Article, Tag } from "@/database/types";
+import dayjs from "dayjs";
+
+const { article, isIndex } = defineProps<{
+	article: Article & { tags: Tag[] };
+	isIndex: boolean;
+}>();
+</script>
+<style scoped>
+.author {
+	font-size: 0.8rem;
+}
+.picture {
+	height: 0.8rem;
+	width: 0.8rem;
+}
+.tag {
+	background-color: aqua;
+	padding: 2px;
+	font-size: 10px;
+}
+</style>

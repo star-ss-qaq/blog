@@ -57,6 +57,7 @@ onMounted(() => {
 			// @ts-ignore
 			import("https://esm.unpkg.com/@tanstack/highlight@1.2.0/dist/core.js"),
 			// import("@tanstack/highlight/languages/js").then((res) => res.js),
+			/* @vite-ignore */
 			import(name),
 		]).then(([{ createHighlighter }, lang]) => {
 			highlighter.value = createHighlighter({

@@ -6,6 +6,9 @@ import inlineCode from "./components/inline-code.vue";
 import image from "./components/image.vue";
 import list from "./components/list.vue";
 import link from "./components/link.vue";
+import strong from "./components/strong.vue";
+import thematicBreak from "./components/thematic-break.vue";
+import emphasis from "./components/emphasis.vue";
 
 export const compMap: Record<string, Component> = {
 	paragraph,
@@ -15,4 +18,7 @@ export const compMap: Record<string, Component> = {
 	image,
 	list,
 	link,
+	strong,
+	thematicBreak,
+	emphasis,
 };
