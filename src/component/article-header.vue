@@ -15,7 +15,7 @@
 			:is="isIndex ? 'span' : 'a'"
 			class="tag"
 			v-for="item in article.tags"
-			:href="`/tag/id/${item.id}`"
+			:href="getTagUrl(item)"
 		>
 			{{ item.name }}
 		</component>
@@ -23,6 +23,7 @@
 </template>
 <script setup lang="ts">
 import { Article, Tag } from "@/database/types";
+import { getTagUrl } from "@/utils";
 import dayjs from "dayjs";
 
 const { article, isIndex } = defineProps<{

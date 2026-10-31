@@ -23,7 +23,7 @@ const menu = [
 	},
 	{ path: "https://www.thestarweb.cn", title: "主站" },
 	{ path: "/list/1", title: "文章列表" },
-	{ path: "/type/list/1", title: "分类列表" },
+	{ path: "/tag/list/1", title: "分类列表" },
 ];
 const version = process.env.VERSION;
 const buildAt = process.env.BUILD_AT;

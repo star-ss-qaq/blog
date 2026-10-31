@@ -1,0 +1,24 @@
+<template>
+	<Block>
+		<ul>
+			<li v-for="item in data">
+				<slot v-bind="item"></slot>
+			</li>
+		</ul>
+	</Block>
+</template>
+<script setup lang="ts" generic="T">
+import Block from "@/component/block.vue";
+import { useRoute } from "@thestarweb/star-framework-app-web-vue";
+
+const { data, total } = defineProps<{ data: T[]; total: number }>();
+const route = useRoute();
+console.log(route);
+</script>
+<style scoped>
+li {
+	overflow: hidden;
+	border-bottom: solid 1px #555;
+	padding: 4px 10px;
+}
+</style>
