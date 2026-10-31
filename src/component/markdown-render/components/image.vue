@@ -6,3 +6,8 @@ import { Image } from "mdast";
 
 const { item } = defineProps<{ item: Image }>();
 </script>
+<style scoped>
+img {
+	max-width: 100%;
+}
+</style>
