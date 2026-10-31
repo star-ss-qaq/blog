@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body,body>sf-route{
+    height: 100%;
+}
+sf-route{
+    display: block;
+}
+
+:root{
+    --g-width:80%;
+    --font-color:#010f2e;
+}
+*{
+    color: var(--font-color);
+}
+@media screen and (max-width:1000px) {
+    :root{
+    --g-width: 100%;
+    }
+}

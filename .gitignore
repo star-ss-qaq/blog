@@ -1,0 +1,5 @@
+node_modules
+*.sqlite
+route-type.ts
+package-lock.json
+dist
