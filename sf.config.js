@@ -10,10 +10,7 @@ const packageInfo = JSON.parse(readFileSync("./package.json", "utf8"));
 const version = packageInfo.version;
 
 export default defineConfig({
-	plugin: [
-		SFWebPlugin({ htmlPath: join(process.cwd(), "index.html") }),
-		SFWebVuePlugin(),
-	],
+	plugin: [SFWebPlugin(), SFWebVuePlugin()],
 	resolve: {
 		tsconfigPaths: true,
 	},

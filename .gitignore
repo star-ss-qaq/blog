@@ -1,4 +1,5 @@
 node_modules
+dist
 *.sqlite
 route-type.ts
 package-lock.json
