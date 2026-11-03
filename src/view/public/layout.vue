@@ -1,8 +1,5 @@
 <template>
-	<div class="app-main">
-		<header>
-			<a v-for="item of menu" :href="item.path">{{ item.title }}</a>
-		</header>
+	<Page :menu="menu">
 		<div class="app-body">
 			<sf-route />
 		</div>
@@ -13,9 +10,10 @@
 				保留所有权利
 			</p>
 		</footer>
-	</div>
+	</Page>
 </template>
 <script lang="ts" setup>
+import { Page } from "@thestarweb/ui";
 const menu = [
 	{
 		path: "/",

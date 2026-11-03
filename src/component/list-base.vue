@@ -13,7 +13,14 @@ import { useRoute } from "@thestarweb/star-framework-app-web-vue";
 
 const { data, total } = defineProps<{ data: T[]; total: number }>();
 const route = useRoute();
-console.log(route);
+const { finalRoute, params = {} } = route.value;
+console.log(
+	finalRoute &&
+		Object.entries(params).reduce((acc, [key, value]) => {
+			if (key === "page") return acc;
+			return acc.replace(`:${key}`, value as any);
+		}, finalRoute.path),
+);
 </script>
 <style scoped>
 li {

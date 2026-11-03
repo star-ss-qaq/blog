@@ -20,5 +20,5 @@
 		}
 	},
 	"reflection": true,
-	"include": ["./src/**/*.ts", "./src/**/*.vue"]
+	"include": ["./**/*.ts", "./**/*.vue"]
 }

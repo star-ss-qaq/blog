@@ -6,6 +6,7 @@
 				<MarkdownRender :markdown="data.content" />
 			</div>
 		</Block>
+		<Block>评论功能暂时关闭</Block>
 	</div>
 </template>
 <script lang="ts" setup>
