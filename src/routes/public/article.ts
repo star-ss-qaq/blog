@@ -53,6 +53,9 @@ export class ArticleRoute {
 		new VueRender(() => import("@/view/public/p.vue")),
 		(data) => ({
 			title: data.data.title,
+			htmlMeta: {
+				keywords: data.data.keywords || "",
+			},
 		}),
 	)
 	async p(@Param("id") id: number) {
