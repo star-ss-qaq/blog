@@ -5,7 +5,7 @@
 				<slot v-bind="item"></slot>
 			</li>
 		</ul>
-		<Pagination :total="total" :page="1" :pageSize="20" :url="url" />
+		<Pagination :total="total" :page="+params.page" :pageSize="20" :url="url" />
 	</Block>
 </template>
 <script setup lang="ts" generic="T">
@@ -17,13 +17,7 @@ import { computed } from "vue";
 const { data, total } = defineProps<{ data: T[]; total: number }>();
 const route = useRoute();
 const { finalRoute, params = {} } = route.value;
-console.log(
-	finalRoute &&
-		Object.entries(params).reduce((acc, [key, value]) => {
-			if (key === "page") return acc;
-			return acc.replace(`:${key}`, value as any);
-		}, finalRoute.path),
-);
+
 const url = computed(() => {
 	return (
 		finalRoute &&
