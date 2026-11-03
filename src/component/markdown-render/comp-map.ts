@@ -9,6 +9,7 @@ import link from "./components/link.vue";
 import strong from "./components/strong.vue";
 import thematicBreak from "./components/thematic-break.vue";
 import emphasis from "./components/emphasis.vue";
+import heading from './components/heading.vue';
 
 export const compMap: Record<string, Component> = {
 	paragraph,
@@ -21,4 +22,5 @@ export const compMap: Record<string, Component> = {
 	strong,
 	thematicBreak,
 	emphasis,
+	heading
 };

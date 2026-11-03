@@ -1,5 +1,5 @@
 <template>
-	<h2>{{ article.title }}</h2>
+	<component :is="isIndex ? 'h2' : 'h1'">{{ article.title }}</component>
 	<div class="author">
 		<img class="picture" />{{
 			dayjs(article.time).format("YYYY-MM-DD HH:mm:ss")

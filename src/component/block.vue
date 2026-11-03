@@ -1,8 +1,11 @@
 <template>
-	<div class="block">
+	<Card class="block">
 		<slot></slot>
-	</div>
+	</Card>
 </template>
+<script setup lang="ts">
+import { Card } from '@thestarweb/ui';
+</script>
 <style>
 .block {
 	background-color: #aaaa;

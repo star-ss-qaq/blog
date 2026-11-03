@@ -13,9 +13,9 @@ sf-route{
     --g-width:80%;
     --font-color:#010f2e;
 }
-*{
+/* *{
     color: var(--font-color);
-}
+} */
 @media screen and (max-width:1000px) {
     :root{
     --g-width: 100%;

@@ -1,5 +1,5 @@
 <template>
-	<Page :menu="menu">
+	<Page :menu="menu" class="app-main">
 		<div class="app-body">
 			<sf-route />
 		</div>
@@ -39,19 +39,8 @@ const buildAt = process.env.BUILD_AT;
 		no-repeat;
 	overflow: auto;
 }
-header {
-	position: sticky;
-	top: 0;
-	background: #000;
-	color: #fff;
-	height: 40px;
-	display: flex;
-	gap: 5px;
-	align-items: center;
-	padding: 0 10px;
-}
-header a {
-	color: white;
+:deep(.su-page--header){
+	padding: 0 calc((100% - var(--g-width)) / 2);
 }
 footer {
 	text-align: center;

@@ -5,10 +5,12 @@
 				<slot v-bind="item"></slot>
 			</li>
 		</ul>
+		<Pagination :total="total" :page="1" :pageSize="20" />
 	</Block>
 </template>
 <script setup lang="ts" generic="T">
 import Block from "@/component/block.vue";
+// import { Pagination } from "@thestarweb/ui";
 import { useRoute } from "@thestarweb/star-framework-app-web-vue";
 
 const { data, total } = defineProps<{ data: T[]; total: number }>();
