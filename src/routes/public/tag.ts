@@ -4,7 +4,11 @@ import { Param, View } from "@thestarweb/star-framework-app-web";
 import { VueRender } from "@thestarweb/star-framework-app-web-vue";
 
 export class TagRoute {
-	@View("list/:page", new VueRender(() => import("@/view/public/tag-list.vue")))
+	@View(
+		"list/:page",
+		new VueRender(() => import("@/view/public/tag-list.vue")),
+		{ title: "标签列表" },
+	)
 	async list(@Param("page") page: number) {
 		return await db.select("tag").addSelect("*").page(page, 20);
 	}
@@ -28,6 +32,7 @@ export class TagRoute {
 	@View(
 		"id/:id/:page",
 		new VueRender(() => import("@/view/public/tag-content.vue")),
+		(res) => ({ title: res?.tag?.name }),
 	)
 	async id(@Param("id") id: number, @Param("page") page: number = 1) {
 		const tag = await db.select("tag").addSelect("*").where("id", id).one();
@@ -37,9 +42,9 @@ export class TagRoute {
 	@View(
 		"name/:name/:page",
 		new VueRender(() => import("@/view/public/tag-content.vue")),
+		(res) => ({ title: res?.tag?.name }),
 	)
 	async name(@Param("name") name: string, @Param("page") page: number = 1) {
-		console.log(name);
 		const tag = await db
 			.select("tag")
 			.addSelect("*")

@@ -11,19 +11,22 @@
 		</template>
 	</div>
 	<div>
-		<component
-			:is="isIndex ? 'span' : 'a'"
-			class="tag"
-			v-for="item in article.tags"
-			:href="getTagUrl(item)"
-		>
-			{{ item.name }}
-		</component>
+		<TagComp size="mini">
+			<component
+				:is="isIndex ? 'span' : 'a'"
+				class="tag"
+				v-for="item in article.tags"
+				:href="getTagUrl(item)"
+			>
+				{{ item.name }}
+			</component>
+		</TagComp>
 	</div>
 </template>
 <script setup lang="ts">
 import { Article, Tag } from "@/database/types";
 import { getTagUrl } from "@/utils";
+import { Tag as TagComp } from "@thestarweb/ui";
 import dayjs from "dayjs";
 
 const { article, isIndex } = defineProps<{
@@ -38,10 +41,5 @@ const { article, isIndex } = defineProps<{
 .picture {
 	height: 0.8rem;
 	width: 0.8rem;
-}
-.tag {
-	background-color: aqua;
-	padding: 2px;
-	font-size: 10px;
 }
 </style>

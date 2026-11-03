@@ -18,7 +18,7 @@
 		"@thestarweb/star-framework-db": "^1.0.3",
 		"@thestarweb/star-framework-di": "^1.0.0",
 		"@thestarweb/star-framework-route": "^1.0.3",
-		"@thestarweb/ui": "^2.0.0-beta.1",
+		"@thestarweb/ui": "^2.0.0-beta.2",
 		"dayjs": "^1.11.23",
 		"html-entities": "^2.6.0",
 		"mdast-util-from-markdown": "^2.1.0",

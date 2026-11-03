@@ -39,13 +39,17 @@ const buildAt = process.env.BUILD_AT;
 		no-repeat;
 	overflow: auto;
 }
-:deep(.su-page--header){
+:deep(.su-page--header) {
 	padding: 0 calc((100% - var(--g-width)) / 2);
+}
+:deep(.su-page--header a) {
+	color: #e6eaf0;
 }
 footer {
 	text-align: center;
-	color: #fff;
 	margin-bottom: 50px;
+
+	color: #fff;
 }
 .app-body {
 	margin: 50px auto;

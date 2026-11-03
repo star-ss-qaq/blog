@@ -1,15 +1,16 @@
 <template>
-	<Card class="block">
+	<div class="block">
 		<slot></slot>
-	</Card>
+	</div>
 </template>
 <script setup lang="ts">
-import { Card } from '@thestarweb/ui';
+import { Card } from "@thestarweb/ui";
 </script>
 <style>
 .block {
 	background-color: #aaaa;
-	padding: 20px;
-	margin: 10px;
+	padding: calc(var(--star-ui-default-padding) * 2);
+	margin: var(--star-ui-default-padding);
+	border-radius: var(--star-ui-border-radius-base);
 }
 </style>

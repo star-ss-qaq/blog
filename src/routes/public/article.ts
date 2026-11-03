@@ -34,7 +34,9 @@ export class ArticleRoute {
 		};
 	}
 
-	@View("list/:page", new VueRender(() => import("@/view/public/list.vue")))
+	@View("list/:page", new VueRender(() => import("@/view/public/list.vue")), {
+		title: "文章列表",
+	})
 	async list(@Param("page") page: number) {
 		return {
 			...(await db
@@ -68,6 +70,9 @@ export class ArticleRoute {
 			.join("articleToTag")
 			.on("tag.id", "articleToTag.tagId")
 			.where("articleToTag.articleId", id);
+		if (data.display !== 1) {
+			data.content = "当前内容已隐藏";
+		}
 		return { data: { ...data, tags } };
 	}
 
