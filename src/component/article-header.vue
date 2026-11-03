@@ -10,12 +10,11 @@
 			}}已更新)
 		</template>
 	</div>
-	<div>
-		<TagComp size="mini">
+	<div v-if="article.tags.length > 0" class="tags">
+		<TagComp size="mini" v-for="item in article.tags" :key="item.id">
 			<component
 				:is="isIndex ? 'span' : 'a'"
 				class="tag"
-				v-for="item in article.tags"
 				:href="getTagUrl(item)"
 			>
 				{{ item.name }}
@@ -41,5 +40,11 @@ const { article, isIndex } = defineProps<{
 .picture {
 	height: 0.8rem;
 	width: 0.8rem;
+}
+.tags {
+	display: flex;
+	flex-direction: row;
+	gap: var(--star-ui-default-padding);
+	margin-top: var(--star-ui-default-padding);
 }
 </style>
