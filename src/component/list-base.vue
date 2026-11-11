@@ -5,6 +5,9 @@
 				<slot v-bind="item"></slot>
 			</li>
 		</ul>
+		<div v-if="data.length===0">
+			暂无数据
+		</div>
 		<Pagination :total="total" :page="+params.page" :pageSize="20" :url="url" />
 	</Block>
 </template>

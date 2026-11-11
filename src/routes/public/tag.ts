@@ -1,6 +1,6 @@
 import { db } from "@/database";
 import type { Tag } from "@/database/types";
-import { Param, View } from "@thestarweb/star-framework-app-web";
+import { Get, Param, View } from "@thestarweb/star-framework-app-web";
 import { VueRender } from "@thestarweb/star-framework-app-web-vue";
 
 export class TagRoute {
@@ -51,5 +51,10 @@ export class TagRoute {
 			.where("eName", name)
 			.one();
 		return await this._query(tag, page);
+	}
+
+	@Get('all')
+	async all(){
+		return await db.select('tag').addSelect('id','name','pid')
 	}
 }

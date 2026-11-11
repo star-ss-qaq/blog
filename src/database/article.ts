@@ -17,7 +17,7 @@ export const article = {
 		updateTime: { type: "int-datetime", defaultValue: 0 },
 		updateBy: { type: "int", defaultValue: 0 },
 		display: { type: "int" },
-		hot: { type: "int" },
+		hot: { type: "int", defaultValue: 0 },
 	},
 } satisfies TableSchema;
 export type Article = GetTableDataType<typeof article>;

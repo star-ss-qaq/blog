@@ -5,7 +5,7 @@ import type {
 
 export const tag = {
 	columns: {
-		id: { type: "int" },
+		id: { type: "int", autoIncrement: true },
 		/**
 		 * 辅助名称也可用于数据查找
 		 */

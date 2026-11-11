@@ -9,11 +9,16 @@ import {
 import { Inject } from "@thestarweb/star-framework-di";
 import { VueRender } from "@thestarweb/star-framework-app-web-vue";
 import { PublicRoute } from "./public/index.js";
+import { AdminRoute } from "./admin/index.js";
 
 export class Route {
 	@Inject()
 	@SubRoute("")
 	public!: PublicRoute;
+
+	@Inject()
+	@SubRoute('admin')
+	admin!: AdminRoute;
 
 	@Get("/essay/list/:page")
 	oldEssayList(@Param("page") page: number) {
